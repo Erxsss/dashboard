@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (
   req: Request,
@@ -14,4 +14,14 @@ export const POST = async (
     },
   });
   return NextResponse.json({ message: "success", createdUser });
+};
+export const GET = async (
+  req: NextRequest,
+  { params }: { params: Promise<{ userId: string }> },
+) => {
+  const { userId } = await params;
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+  return NextResponse.json(user);
 };

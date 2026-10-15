@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (
   req: NextRequest,
@@ -7,11 +7,11 @@ export const POST = async (
 ) => {
   const body = await req.json();
   const { userId } = await params;
-  const createGoal = await prisma.goal.create({
+  const createdGoal = await prisma.goal.create({
     data: {
       title: body.title,
       userId,
     },
   });
-
+  return NextResponse.json({ message: "success", createdGoal });
 };
