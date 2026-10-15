@@ -8,5 +8,8 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/User'
+export type * from './models/DailyTodo'
 export type * from './models/Goal'
+export type * from './models/Note'
 export type * from './commonInputTypes'

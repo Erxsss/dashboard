@@ -51,7 +51,10 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Goal: 'Goal'
+  User: 'User',
+  DailyTodo: 'DailyTodo',
+  Goal: 'Goal',
+  Note: 'Note'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -70,15 +73,44 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const UserScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const DailyTodoScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isDone: 'isDone',
+  userId: 'userId'
+} as const
+
+export type DailyTodoScalarFieldEnum = (typeof DailyTodoScalarFieldEnum)[keyof typeof DailyTodoScalarFieldEnum]
+
+
 export const GoalScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  description: 'description',
+  userId: 'userId',
   completed: 'completed',
   createdAt: 'createdAt'
 } as const
 
 export type GoalScalarFieldEnum = (typeof GoalScalarFieldEnum)[keyof typeof GoalScalarFieldEnum]
+
+
+export const NoteScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  content: 'content',
+  userId: 'userId'
+} as const
+
+export type NoteScalarFieldEnum = (typeof NoteScalarFieldEnum)[keyof typeof NoteScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -95,12 +127,4 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
-
-
-export const NullsOrder = {
-  first: 'first',
-  last: 'last'
-} as const
-
-export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
