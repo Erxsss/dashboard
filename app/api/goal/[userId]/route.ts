@@ -15,3 +15,13 @@ export const POST = async (
   });
   return NextResponse.json({ message: "success", createdGoal });
 };
+export const GET = async (
+  req: NextRequest,
+  { params }: { params: Promise<{ userId: string }> },
+) => {
+  const { userId } = await params;
+  const goals = prisma.goal.findMany({
+    where: { userId },
+  });
+  return NextResponse.json(goals);
+};
