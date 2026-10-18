@@ -25,3 +25,7 @@ export const GET = async (
   });
   return NextResponse.json(goals);
 };
+
+export const DELETE = (req: NextRequest) => {
+  
+};
