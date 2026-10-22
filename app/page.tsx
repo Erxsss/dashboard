@@ -10,5 +10,7 @@ type dailyTodo = {
   isDone: boolean;
 };
 export default function HOME() {
-  return <div></div>;
+  return <div>
+    
+  </div>;
 }
