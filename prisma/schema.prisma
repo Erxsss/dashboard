@@ -8,8 +8,10 @@ datasource db {
 }
 model User{
   id String @unique @default(nanoid())
+  email String
   firstName String
   lastName String
+  password String 
   goals Goal[]
   dailyTodos DailyTodo[]
   notes Note[]
