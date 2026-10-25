@@ -21,9 +21,8 @@ export const GET = async (
   req: NextRequest,
   { params }: { params: Promise<{ userId: string }> },
 ) => {
-  const { userId } = await params;
-  const user = await prisma.user.findUnique({
-    where: { id: userId },
+  const body = await req.json();
+  const user = prisma.user.findUnique({
+    where: { email: body.email },
   });
-  return NextResponse.json(user);
 };
