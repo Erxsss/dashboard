@@ -8,9 +8,9 @@ export const POST = async (req: NextRequest) => {
       name: body.name,
     },
   });
-  NextResponse.json(createdTodo);
+  return NextResponse.json(createdTodo);
 };
 export const GET = async (req: NextRequest) => {
   const todos = await prisma.dailyTodo.findMany();
-  NextResponse.json(todos);
+  return NextResponse.json(todos);
 };
