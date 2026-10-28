@@ -28,21 +28,18 @@ export type DailyTodoMinAggregateOutputType = {
   id: string | null
   name: string | null
   isDone: boolean | null
-  userId: string | null
 }
 
 export type DailyTodoMaxAggregateOutputType = {
   id: string | null
   name: string | null
   isDone: boolean | null
-  userId: string | null
 }
 
 export type DailyTodoCountAggregateOutputType = {
   id: number
   name: number
   isDone: number
-  userId: number
   _all: number
 }
 
@@ -51,21 +48,18 @@ export type DailyTodoMinAggregateInputType = {
   id?: true
   name?: true
   isDone?: true
-  userId?: true
 }
 
 export type DailyTodoMaxAggregateInputType = {
   id?: true
   name?: true
   isDone?: true
-  userId?: true
 }
 
 export type DailyTodoCountAggregateInputType = {
   id?: true
   name?: true
   isDone?: true
-  userId?: true
   _all?: true
 }
 
@@ -145,7 +139,6 @@ export type DailyTodoGroupByOutputType = {
   id: string
   name: string
   isDone: boolean
-  userId: string
   _count: DailyTodoCountAggregateOutputType | null
   _min: DailyTodoMinAggregateOutputType | null
   _max: DailyTodoMaxAggregateOutputType | null
@@ -173,16 +166,12 @@ export type DailyTodoWhereInput = {
   id?: Prisma.StringFilter<"DailyTodo"> | string
   name?: Prisma.StringFilter<"DailyTodo"> | string
   isDone?: Prisma.BoolFilter<"DailyTodo"> | boolean
-  userId?: Prisma.StringFilter<"DailyTodo"> | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type DailyTodoOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isDone?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type DailyTodoWhereUniqueInput = Prisma.AtLeast<{
@@ -192,15 +181,12 @@ export type DailyTodoWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.DailyTodoWhereInput | Prisma.DailyTodoWhereInput[]
   name?: Prisma.StringFilter<"DailyTodo"> | string
   isDone?: Prisma.BoolFilter<"DailyTodo"> | boolean
-  userId?: Prisma.StringFilter<"DailyTodo"> | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type DailyTodoOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isDone?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   _count?: Prisma.DailyTodoCountOrderByAggregateInput
   _max?: Prisma.DailyTodoMaxOrderByAggregateInput
   _min?: Prisma.DailyTodoMinOrderByAggregateInput
@@ -213,42 +199,36 @@ export type DailyTodoScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"DailyTodo"> | string
   name?: Prisma.StringWithAggregatesFilter<"DailyTodo"> | string
   isDone?: Prisma.BoolWithAggregatesFilter<"DailyTodo"> | boolean
-  userId?: Prisma.StringWithAggregatesFilter<"DailyTodo"> | string
 }
 
 export type DailyTodoCreateInput = {
   id?: string
   name: string
-  isDone: boolean
-  user: Prisma.UserCreateNestedOneWithoutDailyTodosInput
+  isDone?: boolean
 }
 
 export type DailyTodoUncheckedCreateInput = {
   id?: string
   name: string
-  isDone: boolean
-  userId: string
+  isDone?: boolean
 }
 
 export type DailyTodoUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  user?: Prisma.UserUpdateOneRequiredWithoutDailyTodosNestedInput
 }
 
 export type DailyTodoUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type DailyTodoCreateManyInput = {
   id?: string
   name: string
-  isDone: boolean
-  userId: string
+  isDone?: boolean
 }
 
 export type DailyTodoUpdateManyMutationInput = {
@@ -261,156 +241,28 @@ export type DailyTodoUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-}
-
-export type DailyTodoListRelationFilter = {
-  every?: Prisma.DailyTodoWhereInput
-  some?: Prisma.DailyTodoWhereInput
-  none?: Prisma.DailyTodoWhereInput
-}
-
-export type DailyTodoOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
 }
 
 export type DailyTodoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isDone?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
 }
 
 export type DailyTodoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isDone?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
 }
 
 export type DailyTodoMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isDone?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-}
-
-export type DailyTodoCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.DailyTodoCreateWithoutUserInput, Prisma.DailyTodoUncheckedCreateWithoutUserInput> | Prisma.DailyTodoCreateWithoutUserInput[] | Prisma.DailyTodoUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.DailyTodoCreateOrConnectWithoutUserInput | Prisma.DailyTodoCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.DailyTodoCreateManyUserInputEnvelope
-  connect?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-}
-
-export type DailyTodoUncheckedCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.DailyTodoCreateWithoutUserInput, Prisma.DailyTodoUncheckedCreateWithoutUserInput> | Prisma.DailyTodoCreateWithoutUserInput[] | Prisma.DailyTodoUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.DailyTodoCreateOrConnectWithoutUserInput | Prisma.DailyTodoCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.DailyTodoCreateManyUserInputEnvelope
-  connect?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-}
-
-export type DailyTodoUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.DailyTodoCreateWithoutUserInput, Prisma.DailyTodoUncheckedCreateWithoutUserInput> | Prisma.DailyTodoCreateWithoutUserInput[] | Prisma.DailyTodoUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.DailyTodoCreateOrConnectWithoutUserInput | Prisma.DailyTodoCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.DailyTodoUpsertWithWhereUniqueWithoutUserInput | Prisma.DailyTodoUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.DailyTodoCreateManyUserInputEnvelope
-  set?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  disconnect?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  delete?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  connect?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  update?: Prisma.DailyTodoUpdateWithWhereUniqueWithoutUserInput | Prisma.DailyTodoUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.DailyTodoUpdateManyWithWhereWithoutUserInput | Prisma.DailyTodoUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.DailyTodoScalarWhereInput | Prisma.DailyTodoScalarWhereInput[]
-}
-
-export type DailyTodoUncheckedUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.DailyTodoCreateWithoutUserInput, Prisma.DailyTodoUncheckedCreateWithoutUserInput> | Prisma.DailyTodoCreateWithoutUserInput[] | Prisma.DailyTodoUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.DailyTodoCreateOrConnectWithoutUserInput | Prisma.DailyTodoCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.DailyTodoUpsertWithWhereUniqueWithoutUserInput | Prisma.DailyTodoUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.DailyTodoCreateManyUserInputEnvelope
-  set?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  disconnect?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  delete?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  connect?: Prisma.DailyTodoWhereUniqueInput | Prisma.DailyTodoWhereUniqueInput[]
-  update?: Prisma.DailyTodoUpdateWithWhereUniqueWithoutUserInput | Prisma.DailyTodoUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.DailyTodoUpdateManyWithWhereWithoutUserInput | Prisma.DailyTodoUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.DailyTodoScalarWhereInput | Prisma.DailyTodoScalarWhereInput[]
 }
 
 export type BoolFieldUpdateOperationsInput = {
   set?: boolean
-}
-
-export type DailyTodoCreateWithoutUserInput = {
-  id?: string
-  name: string
-  isDone: boolean
-}
-
-export type DailyTodoUncheckedCreateWithoutUserInput = {
-  id?: string
-  name: string
-  isDone: boolean
-}
-
-export type DailyTodoCreateOrConnectWithoutUserInput = {
-  where: Prisma.DailyTodoWhereUniqueInput
-  create: Prisma.XOR<Prisma.DailyTodoCreateWithoutUserInput, Prisma.DailyTodoUncheckedCreateWithoutUserInput>
-}
-
-export type DailyTodoCreateManyUserInputEnvelope = {
-  data: Prisma.DailyTodoCreateManyUserInput | Prisma.DailyTodoCreateManyUserInput[]
-  skipDuplicates?: boolean
-}
-
-export type DailyTodoUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.DailyTodoWhereUniqueInput
-  update: Prisma.XOR<Prisma.DailyTodoUpdateWithoutUserInput, Prisma.DailyTodoUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.DailyTodoCreateWithoutUserInput, Prisma.DailyTodoUncheckedCreateWithoutUserInput>
-}
-
-export type DailyTodoUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.DailyTodoWhereUniqueInput
-  data: Prisma.XOR<Prisma.DailyTodoUpdateWithoutUserInput, Prisma.DailyTodoUncheckedUpdateWithoutUserInput>
-}
-
-export type DailyTodoUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.DailyTodoScalarWhereInput
-  data: Prisma.XOR<Prisma.DailyTodoUpdateManyMutationInput, Prisma.DailyTodoUncheckedUpdateManyWithoutUserInput>
-}
-
-export type DailyTodoScalarWhereInput = {
-  AND?: Prisma.DailyTodoScalarWhereInput | Prisma.DailyTodoScalarWhereInput[]
-  OR?: Prisma.DailyTodoScalarWhereInput[]
-  NOT?: Prisma.DailyTodoScalarWhereInput | Prisma.DailyTodoScalarWhereInput[]
-  id?: Prisma.StringFilter<"DailyTodo"> | string
-  name?: Prisma.StringFilter<"DailyTodo"> | string
-  isDone?: Prisma.BoolFilter<"DailyTodo"> | boolean
-  userId?: Prisma.StringFilter<"DailyTodo"> | string
-}
-
-export type DailyTodoCreateManyUserInput = {
-  id?: string
-  name: string
-  isDone: boolean
-}
-
-export type DailyTodoUpdateWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean
-}
-
-export type DailyTodoUncheckedUpdateWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean
-}
-
-export type DailyTodoUncheckedUpdateManyWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  isDone?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 
@@ -419,54 +271,35 @@ export type DailyTodoSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   id?: boolean
   name?: boolean
   isDone?: boolean
-  userId?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dailyTodo"]>
 
 export type DailyTodoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   isDone?: boolean
-  userId?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dailyTodo"]>
 
 export type DailyTodoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   isDone?: boolean
-  userId?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dailyTodo"]>
 
 export type DailyTodoSelectScalar = {
   id?: boolean
   name?: boolean
   isDone?: boolean
-  userId?: boolean
 }
 
-export type DailyTodoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "isDone" | "userId", ExtArgs["result"]["dailyTodo"]>
-export type DailyTodoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}
-export type DailyTodoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}
-export type DailyTodoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}
+export type DailyTodoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "isDone", ExtArgs["result"]["dailyTodo"]>
 
 export type $DailyTodoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "DailyTodo"
-  objects: {
-    user: Prisma.$UserPayload<ExtArgs>
-  }
+  objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
     isDone: boolean
-    userId: string
   }, ExtArgs["result"]["dailyTodo"]>
   composites: {}
 }
@@ -861,7 +694,6 @@ readonly fields: DailyTodoFieldRefs;
  */
 export interface Prisma__DailyTodoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -894,7 +726,6 @@ export interface DailyTodoFieldRefs {
   readonly id: Prisma.FieldRef<"DailyTodo", 'String'>
   readonly name: Prisma.FieldRef<"DailyTodo", 'String'>
   readonly isDone: Prisma.FieldRef<"DailyTodo", 'Boolean'>
-  readonly userId: Prisma.FieldRef<"DailyTodo", 'String'>
 }
     
 
@@ -911,10 +742,6 @@ export type DailyTodoFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the DailyTodo
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
   /**
    * Filter, which DailyTodo to fetch.
    */
@@ -934,10 +761,6 @@ export type DailyTodoFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensi
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
-  /**
    * Filter, which DailyTodo to fetch.
    */
   where: Prisma.DailyTodoWhereUniqueInput
@@ -955,10 +778,6 @@ export type DailyTodoFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the DailyTodo
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
   /**
    * Filter, which DailyTodo to fetch.
    */
@@ -1008,10 +827,6 @@ export type DailyTodoFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensio
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
-  /**
    * Filter, which DailyTodo to fetch.
    */
   where?: Prisma.DailyTodoWhereInput
@@ -1059,10 +874,6 @@ export type DailyTodoFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the DailyTodo
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
   /**
    * Filter, which DailyTodos to fetch.
    */
@@ -1112,10 +923,6 @@ export type DailyTodoCreateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
-  /**
    * The data needed to create a DailyTodo.
    */
   data: Prisma.XOR<Prisma.DailyTodoCreateInput, Prisma.DailyTodoUncheckedCreateInput>
@@ -1149,10 +956,6 @@ export type DailyTodoCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    */
   data: Prisma.DailyTodoCreateManyInput | Prisma.DailyTodoCreateManyInput[]
   skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1167,10 +970,6 @@ export type DailyTodoUpdateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the DailyTodo
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
   /**
    * The data needed to update a DailyTodo.
    */
@@ -1223,10 +1022,6 @@ export type DailyTodoUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    * Limit how many DailyTodos to update.
    */
   limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1241,10 +1036,6 @@ export type DailyTodoUpsertArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the DailyTodo
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
   /**
    * The filter to search for the DailyTodo to update in case it exists.
    */
@@ -1271,10 +1062,6 @@ export type DailyTodoDeleteArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the DailyTodo
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
   /**
    * Filter which DailyTodo to delete.
    */
@@ -1307,8 +1094,4 @@ export type DailyTodoDefaultArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the DailyTodo
    */
   omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
 }

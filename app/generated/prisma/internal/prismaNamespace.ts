@@ -769,8 +769,7 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const DailyTodoScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  isDone: 'isDone',
-  userId: 'userId'
+  isDone: 'isDone'
 } as const
 
 export type DailyTodoScalarFieldEnum = (typeof DailyTodoScalarFieldEnum)[keyof typeof DailyTodoScalarFieldEnum]
@@ -779,7 +778,6 @@ export type DailyTodoScalarFieldEnum = (typeof DailyTodoScalarFieldEnum)[keyof t
 export const GoalScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  userId: 'userId',
   completed: 'completed',
   createdAt: 'createdAt'
 } as const

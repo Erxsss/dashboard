@@ -182,8 +182,6 @@ export type UserWhereInput = {
   firstName?: Prisma.StringFilter<"User"> | string
   lastName?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  goals?: Prisma.GoalListRelationFilter
-  dailyTodos?: Prisma.DailyTodoListRelationFilter
   notes?: Prisma.NoteListRelationFilter
 }
 
@@ -193,8 +191,6 @@ export type UserOrderByWithRelationInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  goals?: Prisma.GoalOrderByRelationAggregateInput
-  dailyTodos?: Prisma.DailyTodoOrderByRelationAggregateInput
   notes?: Prisma.NoteOrderByRelationAggregateInput
 }
 
@@ -207,8 +203,6 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   firstName?: Prisma.StringFilter<"User"> | string
   lastName?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  goals?: Prisma.GoalListRelationFilter
-  dailyTodos?: Prisma.DailyTodoListRelationFilter
   notes?: Prisma.NoteListRelationFilter
 }, "id" | "email">
 
@@ -240,8 +234,6 @@ export type UserCreateInput = {
   firstName: string
   lastName: string
   password: string
-  goals?: Prisma.GoalCreateNestedManyWithoutUserInput
-  dailyTodos?: Prisma.DailyTodoCreateNestedManyWithoutUserInput
   notes?: Prisma.NoteCreateNestedManyWithoutUserInput
 }
 
@@ -251,8 +243,6 @@ export type UserUncheckedCreateInput = {
   firstName: string
   lastName: string
   password: string
-  goals?: Prisma.GoalUncheckedCreateNestedManyWithoutUserInput
-  dailyTodos?: Prisma.DailyTodoUncheckedCreateNestedManyWithoutUserInput
   notes?: Prisma.NoteUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -262,8 +252,6 @@ export type UserUpdateInput = {
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  goals?: Prisma.GoalUpdateManyWithoutUserNestedInput
-  dailyTodos?: Prisma.DailyTodoUpdateManyWithoutUserNestedInput
   notes?: Prisma.NoteUpdateManyWithoutUserNestedInput
 }
 
@@ -273,8 +261,6 @@ export type UserUncheckedUpdateInput = {
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  goals?: Prisma.GoalUncheckedUpdateManyWithoutUserNestedInput
-  dailyTodos?: Prisma.DailyTodoUncheckedUpdateManyWithoutUserNestedInput
   notes?: Prisma.NoteUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -335,34 +321,6 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
-export type UserCreateNestedOneWithoutDailyTodosInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutDailyTodosInput, Prisma.UserUncheckedCreateWithoutDailyTodosInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDailyTodosInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneRequiredWithoutDailyTodosNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutDailyTodosInput, Prisma.UserUncheckedCreateWithoutDailyTodosInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDailyTodosInput
-  upsert?: Prisma.UserUpsertWithoutDailyTodosInput
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutDailyTodosInput, Prisma.UserUpdateWithoutDailyTodosInput>, Prisma.UserUncheckedUpdateWithoutDailyTodosInput>
-}
-
-export type UserCreateNestedOneWithoutGoalsInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutGoalsInput, Prisma.UserUncheckedCreateWithoutGoalsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGoalsInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneRequiredWithoutGoalsNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutGoalsInput, Prisma.UserUncheckedCreateWithoutGoalsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGoalsInput
-  upsert?: Prisma.UserUpsertWithoutGoalsInput
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutGoalsInput, Prisma.UserUpdateWithoutGoalsInput>, Prisma.UserUncheckedUpdateWithoutGoalsInput>
-}
-
 export type UserCreateNestedOneWithoutNotesInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutNotesInput, Prisma.UserUncheckedCreateWithoutNotesInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotesInput
@@ -377,126 +335,12 @@ export type UserUpdateOneRequiredWithoutNotesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutNotesInput, Prisma.UserUpdateWithoutNotesInput>, Prisma.UserUncheckedUpdateWithoutNotesInput>
 }
 
-export type UserCreateWithoutDailyTodosInput = {
-  id?: string
-  email: string
-  firstName: string
-  lastName: string
-  password: string
-  goals?: Prisma.GoalCreateNestedManyWithoutUserInput
-  notes?: Prisma.NoteCreateNestedManyWithoutUserInput
-}
-
-export type UserUncheckedCreateWithoutDailyTodosInput = {
-  id?: string
-  email: string
-  firstName: string
-  lastName: string
-  password: string
-  goals?: Prisma.GoalUncheckedCreateNestedManyWithoutUserInput
-  notes?: Prisma.NoteUncheckedCreateNestedManyWithoutUserInput
-}
-
-export type UserCreateOrConnectWithoutDailyTodosInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutDailyTodosInput, Prisma.UserUncheckedCreateWithoutDailyTodosInput>
-}
-
-export type UserUpsertWithoutDailyTodosInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutDailyTodosInput, Prisma.UserUncheckedUpdateWithoutDailyTodosInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutDailyTodosInput, Prisma.UserUncheckedCreateWithoutDailyTodosInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutDailyTodosInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutDailyTodosInput, Prisma.UserUncheckedUpdateWithoutDailyTodosInput>
-}
-
-export type UserUpdateWithoutDailyTodosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  firstName?: Prisma.StringFieldUpdateOperationsInput | string
-  lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  goals?: Prisma.GoalUpdateManyWithoutUserNestedInput
-  notes?: Prisma.NoteUpdateManyWithoutUserNestedInput
-}
-
-export type UserUncheckedUpdateWithoutDailyTodosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  firstName?: Prisma.StringFieldUpdateOperationsInput | string
-  lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  goals?: Prisma.GoalUncheckedUpdateManyWithoutUserNestedInput
-  notes?: Prisma.NoteUncheckedUpdateManyWithoutUserNestedInput
-}
-
-export type UserCreateWithoutGoalsInput = {
-  id?: string
-  email: string
-  firstName: string
-  lastName: string
-  password: string
-  dailyTodos?: Prisma.DailyTodoCreateNestedManyWithoutUserInput
-  notes?: Prisma.NoteCreateNestedManyWithoutUserInput
-}
-
-export type UserUncheckedCreateWithoutGoalsInput = {
-  id?: string
-  email: string
-  firstName: string
-  lastName: string
-  password: string
-  dailyTodos?: Prisma.DailyTodoUncheckedCreateNestedManyWithoutUserInput
-  notes?: Prisma.NoteUncheckedCreateNestedManyWithoutUserInput
-}
-
-export type UserCreateOrConnectWithoutGoalsInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutGoalsInput, Prisma.UserUncheckedCreateWithoutGoalsInput>
-}
-
-export type UserUpsertWithoutGoalsInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutGoalsInput, Prisma.UserUncheckedUpdateWithoutGoalsInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutGoalsInput, Prisma.UserUncheckedCreateWithoutGoalsInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutGoalsInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutGoalsInput, Prisma.UserUncheckedUpdateWithoutGoalsInput>
-}
-
-export type UserUpdateWithoutGoalsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  firstName?: Prisma.StringFieldUpdateOperationsInput | string
-  lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  dailyTodos?: Prisma.DailyTodoUpdateManyWithoutUserNestedInput
-  notes?: Prisma.NoteUpdateManyWithoutUserNestedInput
-}
-
-export type UserUncheckedUpdateWithoutGoalsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  firstName?: Prisma.StringFieldUpdateOperationsInput | string
-  lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  dailyTodos?: Prisma.DailyTodoUncheckedUpdateManyWithoutUserNestedInput
-  notes?: Prisma.NoteUncheckedUpdateManyWithoutUserNestedInput
-}
-
 export type UserCreateWithoutNotesInput = {
   id?: string
   email: string
   firstName: string
   lastName: string
   password: string
-  goals?: Prisma.GoalCreateNestedManyWithoutUserInput
-  dailyTodos?: Prisma.DailyTodoCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutNotesInput = {
@@ -505,8 +349,6 @@ export type UserUncheckedCreateWithoutNotesInput = {
   firstName: string
   lastName: string
   password: string
-  goals?: Prisma.GoalUncheckedCreateNestedManyWithoutUserInput
-  dailyTodos?: Prisma.DailyTodoUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutNotesInput = {
@@ -531,8 +373,6 @@ export type UserUpdateWithoutNotesInput = {
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  goals?: Prisma.GoalUpdateManyWithoutUserNestedInput
-  dailyTodos?: Prisma.DailyTodoUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutNotesInput = {
@@ -541,8 +381,6 @@ export type UserUncheckedUpdateWithoutNotesInput = {
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  goals?: Prisma.GoalUncheckedUpdateManyWithoutUserNestedInput
-  dailyTodos?: Prisma.DailyTodoUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -551,14 +389,10 @@ export type UserUncheckedUpdateWithoutNotesInput = {
  */
 
 export type UserCountOutputType = {
-  goals: number
-  dailyTodos: number
   notes: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  goals?: boolean | UserCountOutputTypeCountGoalsArgs
-  dailyTodos?: boolean | UserCountOutputTypeCountDailyTodosArgs
   notes?: boolean | UserCountOutputTypeCountNotesArgs
 }
 
@@ -575,20 +409,6 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountGoalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.GoalWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountDailyTodosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.DailyTodoWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
 export type UserCountOutputTypeCountNotesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.NoteWhereInput
 }
@@ -600,8 +420,6 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   firstName?: boolean
   lastName?: boolean
   password?: boolean
-  goals?: boolean | Prisma.User$goalsArgs<ExtArgs>
-  dailyTodos?: boolean | Prisma.User$dailyTodosArgs<ExtArgs>
   notes?: boolean | Prisma.User$notesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
@@ -632,8 +450,6 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "firstName" | "lastName" | "password", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  goals?: boolean | Prisma.User$goalsArgs<ExtArgs>
-  dailyTodos?: boolean | Prisma.User$dailyTodosArgs<ExtArgs>
   notes?: boolean | Prisma.User$notesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -643,8 +459,6 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    goals: Prisma.$GoalPayload<ExtArgs>[]
-    dailyTodos: Prisma.$DailyTodoPayload<ExtArgs>[]
     notes: Prisma.$NotePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1047,8 +861,6 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  goals<T extends Prisma.User$goalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$goalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  dailyTodos<T extends Prisma.User$dailyTodosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$dailyTodosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DailyTodoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   notes<T extends Prisma.User$notesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$notesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1474,54 +1286,6 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Limit how many Users to delete.
    */
   limit?: number
-}
-
-/**
- * User.goals
- */
-export type User$goalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Goal
-   */
-  select?: Prisma.GoalSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Goal
-   */
-  omit?: Prisma.GoalOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.GoalInclude<ExtArgs> | null
-  where?: Prisma.GoalWhereInput
-  orderBy?: Prisma.GoalOrderByWithRelationInput | Prisma.GoalOrderByWithRelationInput[]
-  cursor?: Prisma.GoalWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.GoalScalarFieldEnum | Prisma.GoalScalarFieldEnum[]
-}
-
-/**
- * User.dailyTodos
- */
-export type User$dailyTodosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the DailyTodo
-   */
-  select?: Prisma.DailyTodoSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the DailyTodo
-   */
-  omit?: Prisma.DailyTodoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.DailyTodoInclude<ExtArgs> | null
-  where?: Prisma.DailyTodoWhereInput
-  orderBy?: Prisma.DailyTodoOrderByWithRelationInput | Prisma.DailyTodoOrderByWithRelationInput[]
-  cursor?: Prisma.DailyTodoWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.DailyTodoScalarFieldEnum | Prisma.DailyTodoScalarFieldEnum[]
 }
 
 /**

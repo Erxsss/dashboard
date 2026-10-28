@@ -1,4 +1,7 @@
 "use client";
+
+import { ChangeEvent, useState } from "react";
+
 type goal = {
   id: string;
   name: string;
@@ -10,7 +13,12 @@ type dailyTodo = {
   isDone: boolean;
 };
 export default function HOME() {
-  return <div>
-    
-  </div>;
+  const [todoInput, setTodoInput] = useState<string>();
+  const changeTodoInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setTodoInput(e.target.value);
+  };
+  const createTodo = async () => {
+    const todo = await fetch("/api/dailyTodo", {});
+  };
+  return <div></div>;
 }

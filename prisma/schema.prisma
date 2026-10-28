@@ -12,24 +12,24 @@ model User{
   firstName String
   lastName String
   password String 
-  goals Goal[]
-  dailyTodos DailyTodo[]
+  // goals Goal[]
+  // dailyTodos DailyTodo[]
   notes Note[]
 }
 model DailyTodo {
   id String @id @default(nanoid())
   name String 
-  isDone Boolean
-  userId String
-  user User @relation(fields: [userId], references: [id])
+  isDone Boolean @default(false)
+  // userId String
+  // user User @relation(fields: [userId], references: [id])
 }
 model Goal {
   id          String   @id @default(nanoid())
   title       String
-  userId String
+  // userId String
   completed   Boolean  @default(false)
   createdAt   DateTime @default(now())
-  user User @relation(fields: [userId],references: [id])
+  // user User @relation(fields: [userId],references: [id])
 }
 model Note{
   id String @id @default(nanoid())
