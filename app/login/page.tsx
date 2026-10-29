@@ -1,3 +1,4 @@
+"use client";
 import { ChangeEvent, useState } from "react";
 
 export default function HOME() {
@@ -13,8 +14,8 @@ export default function HOME() {
       setInput((prev) => ({ ...prev, password: value }));
     }
   };
-  const login = async() => {
-    const res = await fetch("/api/user")
+  const login = async () => {
+    const res = await fetch("/api/user");
   };
   return (
     <div>
